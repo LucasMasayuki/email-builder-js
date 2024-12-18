@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { render } from '@testing-library/react';
-
 import { ColumnsContainer } from '.';
 
 describe('block-columns-container', () => {
@@ -12,7 +10,9 @@ describe('block-columns-container', () => {
   describe('columnsCount 2', () => {
     it('renders column children', () => {
       const columns = [<>bread</>, <>tomato</>, <>lettuce</>];
-      expect(render(<ColumnsContainer props={{ columnsCount: 2 }} columns={columns} />).asFragment()).toMatchSnapshot();
+      expect(
+        render(<ColumnsContainer props={{ columnsCount: 2 }} columns={columns} />).asFragment()
+      ).toMatchSnapshot();
     });
 
     it('uses padding correctly', () => {
@@ -34,7 +34,9 @@ describe('block-columns-container', () => {
   describe('columnsCount 3', () => {
     it('renders column children', () => {
       const columns = [<>bread</>, <>tomato</>, <>lettuce</>];
-      expect(render(<ColumnsContainer props={{ columnsCount: 3 }} columns={columns} />).asFragment()).toMatchSnapshot();
+      expect(
+        render(<ColumnsContainer props={{ columnsCount: 3 }} columns={columns} />).asFragment()
+      ).toMatchSnapshot();
     });
 
     it('uses padding correctly', () => {
@@ -45,6 +47,30 @@ describe('block-columns-container', () => {
             props={{
               columnsGap: 12,
               columnsCount: 3,
+            }}
+            columns={columns}
+          />
+        ).asFragment()
+      ).toMatchSnapshot();
+    });
+  });
+
+  describe('columnsCount 4', () => {
+    it('renders column children', () => {
+      const columns = [<>bread</>, <>tomato</>, <>lettuce</>, <>cheese</>];
+      expect(
+        render(<ColumnsContainer props={{ columnsCount: 4 }} columns={columns} />).asFragment()
+      ).toMatchSnapshot();
+    });
+
+    it('uses padding correctly', () => {
+      const columns = [<>bread</>, <>tomato</>, <>lettuce</>, <>cheese</>];
+      expect(
+        render(
+          <ColumnsContainer
+            props={{
+              columnsGap: 16,
+              columnsCount: 4,
             }}
             columns={columns}
           />
